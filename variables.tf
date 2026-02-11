@@ -30,17 +30,17 @@ EOT
     location                = string
     name                    = string
     resource_group_name     = string
-    account_creation_source = optional(string, "LIFTR")
+    account_creation_source = optional(string) # Default: "LIFTR"
     account_id              = optional(string)
     ingestion_key           = optional(string)
-    org_creation_source     = optional(string, "LIFTR")
+    org_creation_source     = optional(string) # Default: "LIFTR"
     organization_id         = optional(string)
     user_id                 = optional(string)
     plan = object({
-      billing_cycle  = optional(string, "MONTHLY")
+      billing_cycle  = optional(string) # Default: "MONTHLY"
       effective_date = string
-      plan_id        = optional(string, "newrelic-pay-as-you-go-free-live")
-      usage_type     = optional(string, "PAYG")
+      plan_id        = optional(string) # Default: "newrelic-pay-as-you-go-free-live"
+      usage_type     = optional(string) # Default: "PAYG"
     })
     user = object({
       email        = string
