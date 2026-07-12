@@ -1,3 +1,7 @@
+output "new_relic_monitors_id" {
+  description = "Map of id values across all new_relic_monitors, keyed the same as var.new_relic_monitors"
+  value       = { for k, v in azurerm_new_relic_monitor.new_relic_monitors : k => v.id }
+}
 output "new_relic_monitors_account_creation_source" {
   description = "Map of account_creation_source values across all new_relic_monitors, keyed the same as var.new_relic_monitors"
   value       = { for k, v in azurerm_new_relic_monitor.new_relic_monitors : k => v.account_creation_source }
