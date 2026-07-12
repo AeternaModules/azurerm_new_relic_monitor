@@ -19,6 +19,8 @@ Optional:
     - account_creation_source
     - account_id
     - ingestion_key
+    - ingestion_key_key_vault_id (alternative to ingestion_key - read from Key Vault instead)
+    - ingestion_key_key_vault_secret_name (alternative to ingestion_key - read from Key Vault instead)
     - org_creation_source
     - organization_id
     - user_id
@@ -27,15 +29,17 @@ Optional:
 EOT
 
   type = map(object({
-    location                = string
-    name                    = string
-    resource_group_name     = string
-    account_creation_source = optional(string) # Default: "LIFTR"
-    account_id              = optional(string)
-    ingestion_key           = optional(string)
-    org_creation_source     = optional(string) # Default: "LIFTR"
-    organization_id         = optional(string)
-    user_id                 = optional(string)
+    location                            = string
+    name                                = string
+    resource_group_name                 = string
+    account_creation_source             = optional(string) # Default: "LIFTR"
+    account_id                          = optional(string)
+    ingestion_key                       = optional(string)
+    ingestion_key_key_vault_id          = optional(string)
+    ingestion_key_key_vault_secret_name = optional(string)
+    org_creation_source                 = optional(string) # Default: "LIFTR"
+    organization_id                     = optional(string)
+    user_id                             = optional(string)
     plan = object({
       billing_cycle  = optional(string) # Default: "MONTHLY"
       effective_date = string
